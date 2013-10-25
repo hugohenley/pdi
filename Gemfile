@@ -1,15 +1,23 @@
 source 'https://rubygems.org'
+#source 'https://XXXXXXXX:XXXXXXXX@sistemas.uff.br/sti/gemserver/'
 
 gem 'rails', '3.2.14'
+gem 'twitter-bootstrap-rails'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+#gem 'portal-sso', '0.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

@@ -1,0 +1,1 @@
+URL_PDI = YAML.load_file(Rails.root.join("config","redmine_pdi.yml"))[Rails.env]["url"]

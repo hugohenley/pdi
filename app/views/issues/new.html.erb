@@ -1,0 +1,33 @@
+<h2>Submeter Nova Proposta ao PDI</h2>
+<%= form_tag issues_path, :method => 'post', :multipart => true do %>
+
+    <p>
+      Setor Proponente: <%= text_field_tag "issue[setor_proponente]" %>
+    </p>
+
+    <p>
+      Responsável pelo Projeto: <%= text_field_tag "issue[responsavel_projeto]" %>
+    </p>
+
+    <p>
+      Título do Projeto: <%= text_field_tag "issue[subject]" %>
+    </p>
+
+    <p>
+      Objetivos: <%= text_area_tag "issue[objetivos]" %>
+    </p>
+
+    <p>
+      Justificativa: <%= text_area_tag "issue[justificativa]" %>
+    </p>
+
+    <p>
+      Indicadores e relação com as metas:
+      <%= select_tag "" %>
+      Meta:
+      <%= text_field_tag "" %>
+    </p>
+    <div class="btn-group">
+      <%= submit_tag "Submeter Proposta", :class => "btn btn-success" %>
+<% end %>
+</div>

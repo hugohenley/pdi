@@ -1,0 +1,19 @@
+#Example:
+# development:
+#    user: admin
+#    password: admin
+# production:
+#    user: pdi_user
+#    password: !AO92lPd)2@.
+
+development:
+    user: admin
+    password: admin
+
+test:
+    user: admin
+    password: admin
+
+production:
+    user: admin
+    password: admin

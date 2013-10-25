@@ -1,0 +1,14 @@
+#Example:
+# development:
+#    url: https://dev_example.com/redminepdi/
+# production:
+#    url: https://prod_example.com/redminepdi/
+
+development:
+    url: http://local.ntp.uff.br:3001
+
+test:
+    url: url_jenkins
+
+production:
+    url: url_jenkins

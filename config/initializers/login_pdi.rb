@@ -1,0 +1,1 @@
+LOGIN_PDI = YAML.load_file(Rails.root.join("config","login_pdi.yml"))[Rails.env]
