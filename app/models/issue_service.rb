@@ -36,19 +36,16 @@ class IssueService
   #
   ################################################################
 
-  PROJETOS = {submissao_pdi: 1}
-  TIPOS = {proposta_projeto: 1}
-  STATUS = {nao_avaliado: 1, aprovado: 2, reprovado: 3}
-  PRIORIDADE = {normal: 1, alta: 2, baixa: 3, urgente: 4}
+  PROJETOS = { submissao_pdi: 1 }
+  TIPOS = { proposta_projeto: 1, orcamento: 2, acao: 3 }
+  STATUS = { nao_avaliado: 1, aprovado: 2, reprovado: 3 }
+  PRIORIDADE = { normal: 1, alta: 2, baixa: 3, urgente: 4 }
   CATEGORIA = {}
-  CUSTOM_FIELDS_ID = {iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5}
+  CUSTOM_FIELDS_ID = { iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5 }
 
-  EXTRA_PARAMS = {project_id: PROJETOS[:submissao_pdi],
+  EXTRA_PARAMS = { project_id: PROJETOS[:submissao_pdi],
                   tracker_id: TIPOS[:proposta_projeto],
-                  status_id: STATUS[:nao_avaliado]}
-
-  #,
-  #custom_fields: [ {:value => "12439331783", :name => "iduff_solicitante", :id => 2} ] }
+                  status_id: STATUS[:nao_avaliado] }
 
   attr_accessor :params
 
@@ -66,14 +63,17 @@ class IssueService
     description = ""
     description << formatar_objetivos
     description << formatar_justificativa
-    #description << formatar_indicadores
-    #description << formatar_parcerias
-    description << formatar_metodologia("Ação 1", "Inicio 1", "Fim 1")
-    description << gerar_orcamento
+    description << gerar_indicadores
+    description << formatar_parcerias
+    #description << formatar_metodologia("Ação 1", "Inicio 1", "Fim 1")  Criar ticket do tipo(tracker) ação no Redmine e vincular ao pai
+    #description << gerar_orcamento    Criar ticket do tipo(tracker) orçamento no Redmine e vincular ao pai
     description << gerar_titulo_cronograma
-    description << gerar_cronograma_desembolso("1o Quadrimestre (Jan-Abril)", "custeio", "capital", "total")
-    description << gerar_cronograma_desembolso("2o Quadrimestre (Mai-Ago)", "custeio", "capital", "total")
-    description << gerar_cronograma_desembolso("3o Quadrimestre (Set-Dez)", "custeio", "capital", "total")
+    description << gerar_cronograma_desembolso("1o Quadrimestre (Jan-Abril)", @params["issue"]["valor_custeio_1quad"],
+                                               @params["issue"]["valor_capital_1quad"])
+    description << gerar_cronograma_desembolso("2o Quadrimestre (Mai-Ago)", @params["issue"]["valor_custeio_2quad"],
+                                               @params["issue"]["valor_capital_2quad"])
+    description << gerar_cronograma_desembolso("3o Quadrimestre (Set-Dez)", @params["issue"]["valor_custeio_3quad"],
+                                               @params["issue"]["valor_capital_3quad"])
 
     @params["issue"]["description"] = description
   end
@@ -100,6 +100,21 @@ h1. Justificativa
     DESCRIPTION
   end
 
+  def gerar_indicadores
+    <<-DESCRIPTION
+---
+
+h1. Indicadores
+
+Indicador: #{@params["issue"]["indicador1"]}   Meta: #{@params["issue"]["meta1"]}
+
+Indicador: #{@params["issue"]["indicador2"]}   Meta: #{@params["issue"]["meta2"]}
+
+Indicador: #{@params["issue"]["indicador3"]}   Meta: #{@params["issue"]["meta3"]}
+
+    DESCRIPTION
+  end
+
   def formatar_metodologia(acao, inicio, fim)
     <<-DESCRIPTION
 ---
@@ -114,18 +129,20 @@ Fim: #{fim}
   end
 
   def gerar_orcamento
+    params = @params["issue"]
     description = ""
-    description << formatar_tipo_orcamento("Custeio(Total)", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Material de Consumo", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Diárias de Passagens", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Bolsa UFF", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Bolsa (outros)", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Serviço de Pessoa Jurídica", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Serviço de Pessoa Física", "descricao", "valor", "justificativa")
-    description << formatar_tipo_orcamento("Capital (Total)", "descricao", "valor", "justificativa")
+    description << calcular_custeio_total
+
     description << formatar_tipo_orcamento("Equipamentos", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Mobiliários", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Obras e Instalações", "descricao", "valor", "justificativa")
+    description << calcular_capital_total
     <<-DESCRIPTION
 ---
 
@@ -135,6 +152,32 @@ h1. Orçamento
 
     DESCRIPTION
   end
+
+  def calcular_custeio_total
+    params = @parmas["issue"]
+    total = params["valor_mat_consumo"].to_f + params["valor_diarias"].to_f + params["valor_bolsas_uff"].to_f + params["valor_bolsas_outros"].to_f
+    total += params["valor_pj"].to_f + params["valor_pessoa_fisica"].to_f
+    total.to_s
+  end
+
+  def calcular_capital_total
+    params = @parmas["issue"]
+    total = params["valor_equipamentos"].to_f + params["valor_mobiliarios"].to_f +  params["valor_obras"].to_f
+    total.to_s
+  end
+
+  def formatar_parcerias
+    <<-DESCRIPTION
+
+h1. Parcerias
+
+Parceiro 1: #{@params["issue"]["parceiro1"]} Contato 1 : #{@params["issue"]["contato1"]}
+Parceiro 1: #{@params["issue"]["parceiro2"]} Contato 2 : #{@params["issue"]["contato2"]}
+Parceiro 1: #{@params["issue"]["parceiro3"]} Contato 3 : #{@params["issue"]["contato3"]}
+
+    DESCRIPTION
+  end
+
 
   def formatar_tipo_orcamento(tipo, descricao, valor, justificativa)
     <<-DESCRIPTION
@@ -157,13 +200,13 @@ h1. Cronograma de desembolso
     DESCRIPTION
   end
 
-  def gerar_cronograma_desembolso(titulo, custeio, capital, total)
+  def gerar_cronograma_desembolso(titulo, custeio, capital)
     <<-DESCRIPTION
 h2. #{titulo}
 
 Custeio: #{custeio}
 Capital: #{capital}
-Total: #{total}
+Total: R$#{custeio.to_f + capital.to_f}
 
     DESCRIPTION
   end

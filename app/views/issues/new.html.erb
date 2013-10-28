@@ -94,7 +94,7 @@
                   <label for="selectIndicador1" class="col-lg-2 control-label">Indicador</label>
 
                   <div class="col-lg-4">
-                    <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador1") %>
+                    <%= select("issue", "indicador1", ["Indicador 1", "Indicador 2", "Indicador 3"], class: "form-control", id:"selectIndicador1") %>
                   </div>
                   <label for="inputMeta1" class="col-lg-2 control-label">Meta</label>
 
@@ -109,7 +109,7 @@
                   <label for="selectIndicador2" class="col-lg-2 control-label">Indicador</label>
 
                   <div class="col-lg-4">
-                     <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador2") %>
+                     <%= select("issue", "indicador2", ["Indicador 1", "Indicador 2", "Indicador 3"], class: "form-control", id:"selectIndicador2") %>
                   </div>
                   <label for="inputMeta2" class="col-lg-2 control-label">Meta</label>
 
@@ -123,50 +123,52 @@
                 <div class="col-lg-12">
                   <label for="selectIndicador3" class="col-lg-2 control-label">Indicador</label>
                   <div class="col-lg-4">
-                    <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador3") %>
+                    <%= select("issue", "indicador3", ["Indicador 1", "Indicador 2", "Indicador 3"], class: "form-control", id:"selectIndicador3") %>
                   </div>
                   <label for="inputMeta3" class="col-lg-2 control-label">Meta</label>
 
                   <div class="col-lg-2">
-                    <%= text_field_tag "issue[meta1]", nil, :class => "form-control", :id => "inputMeta3", :placeholder => "Numérico ou %" %>
+                    <%= text_field_tag "issue[meta3]", nil, :class => "form-control", :id => "inputMeta3", :placeholder => "Numérico ou %" %>
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-12" style="margin: 60px 0px 30px 0px">
+              <div class="col-lg-12">
                 <h4>Parcerias</h4>
-                <p class="text-danger">Atenção: você precisa fazer o upload de um termo de concordância do setor parceiro. <a href="#">Clique aqui para baixar o modelo</a></p>
               </div>
               <div class="form-group">
                 <div class="col-lg-12">
                   <label for="inputParceria1" class="col-lg-2 control-label">Parceiro 1</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" id="inputParceria1" placeholder="Nome do setor">
-                  </div>
                   <div class="col-lg-4">
-                    <input type="file" class="form-control-static" id="inputCarta1">
+                    <%= text_field_tag "issue[parceiro1]", nil, :class => "form-control", :id => "inputParceria1", :placeholder => "Nome do setor" %>
+                  </div>
+                  <label for="inputContato1" class="col-lg-1 control-label">Contato</label>
+                  <div class="col-lg-3">
+                    <%= text_field_tag "issue[contato1]", nil, :class => "form-control", :id => "inputContato1", :placeholder => "Telefone - (xx) xxxx-xxxx" %>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-lg-12">
                   <label for="inputParceria2" class="col-lg-2 control-label">Parceiro 2</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" id="inputParceria2" placeholder="Nome do setor">
-                  </div>
                   <div class="col-lg-4">
-                    <input type="file" class="form-control-static" id="inputCarta2">
+                    <%= text_field_tag "issue[parceiro2]", nil, :class => "form-control", :id => "inputParceria2", :placeholder => "Nome do setor" %>
+                  </div>
+                  <label for="inputContato2" class="col-lg-1 control-label">Contato</label>
+                  <div class="col-lg-3">
+                    <%= text_field_tag "issue[contato2]", nil, :class => "form-control", :id => "inputContato2", :placeholder => "Telefone - (xx) xxxx-xxxx" %>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-lg-12">
                   <label for="inputParceria3" class="col-lg-2 control-label">Parceiro 3</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" id="inputParceria3" placeholder="Nome do setor">
-                  </div>
                   <div class="col-lg-4">
-                    <input type="file" class="form-control-static" id="inputCarta3">
+                    <%= text_field_tag "issue[parceiro3]", nil, :class => "form-control", :id => "inputParceria3", :placeholder => "Nome do setor" %>
+                  </div>
+                  <label for="inputContato3" class="col-lg-1 control-label">Contato</label>
+                  <div class="col-lg-3">
+                    <%= text_field_tag "issue[contato3]", nil, :class => "form-control", :id => "inputContato3", :placeholder => "Telefone - (xx) xxxx-xxxx" %>
                   </div>
                 </div>
               </div>
@@ -219,7 +221,7 @@
                     <%= text_field_tag "issue[valor_mat_consumo]", nil, :class => "form-control", :id => "inputValorMaterialConsumo", :placeholder => "Valor" %>
                   </div>
                   <div class="col-lg-4">
-                    <%= text_area_tag "issue[valor_mat_consumo]", nil, :rows => 3, :class => "form-control", :id => "inputJustificativaMaterialConsumo" %>
+                    <%= text_area_tag "issue[just_mat_consumo]", nil, :rows => 3, :class => "form-control", :id => "inputJustificativaMaterialConsumo" %>
                     <span class="help-block">Justifique a necessidade desse orçamento.</span>
                   </div>
                 </div>
@@ -230,7 +232,7 @@
                 <div class="col-lg-12">
                   <label class="col-lg-2 control-label">Diárias e passagens</label>
                   <div class="col-lg-4">
-                    <%= text_field_tag "issue[desc_diarias]", nil, :class => "form-control", :id => "inputDiariasPassagens" %>
+                    <%= text_field_tag "issue[desc_diarias]", nil, :class => "form-control", :id => "inputDiariasPassagens", placeholder: "Descrição" %>
                   </div>
                   <div class="col-lg-2">
                     <%= text_field_tag "issue[valor_diarias]", nil, :class => "form-control", :id => "inputValorDiariasPassagens", :placeholder => "Valor" %>
@@ -318,7 +320,7 @@
                     <p>&nbsp;</p>
                   </div>
                   <div class="col-lg-2">
-                    <p class="text-success alert"><b>R$ 100.000,00</b></p>
+                    <p class="text-success alert"><b id="total_custeio">R$ 100.000,00</b></p>
                   </div>
                   <div class="col-lg-4">
                     <p>&nbsp;</p>
@@ -390,7 +392,7 @@
                     <%= text_field_tag "issue[desc_obras]", nil, :class => "form-control", :id => "inputDescricaoObrasInstalacoes", placeholder: "Descrição" %>
                   </div>
                   <div class="col-lg-2">
-                    <%= text_field_tag "issue[valor_Obras]", nil, :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
+                    <%= text_field_tag "issue[valor_obras]", nil, :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
                   </div>
                   <div class="col-lg-4">
                     <%= text_area_tag "issue[jus_obras]", nil, :class => "form-control", :id => "inputJustificativaObrasInstalacoes" %>
@@ -399,7 +401,7 @@
                 </div>
               </div>
 
-              <!-- TOTAL CUSTEIO -->
+              <!-- TOTAL CAPITAL -->
               <div class="form-group" style="background-color: #faf2cc; padding-top: 10px">
                 <div class="col-lg-12">
                   <label class="col-lg-2 control-label">TOTAL DE CAPITAL</label>
@@ -407,7 +409,7 @@
                     <p>&nbsp;</p>
                   </div>
                   <div class="col-lg-2">
-                    <p class="text-success alert"><b>R$ 100.000,00</b></p>
+                    <p class="text-success alert"><b id="total_capital">R$ 100.000,00</b></p>
                   </div>
                   <div class="col-lg-4">
                     <p>&nbsp;</p>
