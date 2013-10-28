@@ -1,3 +1,4 @@
+# encoding: utf-8
 class IssueService
 
   ################################################################
@@ -61,6 +62,14 @@ class IssueService
     description = ""
     description << formatar_objetivos
     description << formatar_justificativa
+    #description << formatar_indicadores
+    #description << formatar_parcerias
+    description << formatar_metodologia("Ação 1", "Inicio 1", "Fim 1")
+    description << gerar_orcamento
+    description << gerar_titulo_cronograma
+    description << gerar_cronograma_desembolso("1o Quadrimestre (Jan-Abril)", "custeio", "capital", "total")
+    description << gerar_cronograma_desembolso("2o Quadrimestre (Mai-Ago)", "custeio", "capital", "total")
+    description << gerar_cronograma_desembolso("3o Quadrimestre (Set-Dez)", "custeio", "capital", "total")
 
     @params["issue"]["description"] = description
   end
@@ -76,39 +85,6 @@ h1. Objetivos
     DESCRIPTION
   end
 
-  def formatar_metodologias
-    <<-DESCRIPTION
----
-
-h1. Justificativa
-
-#{@params["issue"]["justificativa"]}
-
-    DESCRIPTION
-  end
-
-  def formatar_orcamento
-    <<-DESCRIPTION
----
-
-h1. Justificativa
-
-#{@params["issue"]["justificativa"]}
-
-    DESCRIPTION
-  end
-
-  def formatar_cronograma_desembolso
-    <<-DESCRIPTION
----
-
-h1. Justificativa
-
-#{@params["issue"]["justificativa"]}
-
-    DESCRIPTION
-  end
-
   def formatar_justificativa
     <<-DESCRIPTION
 ---
@@ -120,6 +96,73 @@ h1. Justificativa
     DESCRIPTION
   end
 
+  def formatar_metodologia(acao, inicio, fim)
+    <<-DESCRIPTION
+---
+
+h1. Metodologia
+
+Ação: #{acao}
+Início: #{inicio}
+Fim: #{fim}
+
+    DESCRIPTION
+  end
+
+  def gerar_orcamento
+    description = ""
+    description << formatar_tipo_orcamento("Custeio(Total)", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Material de Consumo", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Diárias de Passagens", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Bolsa UFF", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Bolsa (outros)", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Serviço de Pessoa Jurídica", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Serviço de Pessoa Física", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Capital (Total)", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Equipamentos", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Mobiliários", "descricao", "valor", "justificativa")
+    description << formatar_tipo_orcamento("Obras e Instalações", "descricao", "valor", "justificativa")
+    <<-DESCRIPTION
+---
+
+h1. Orçamento
+
+#{description}
+
+    DESCRIPTION
+  end
+
+  def formatar_tipo_orcamento(tipo, descricao, valor, justificativa)
+    <<-DESCRIPTION
+
+h2. #{tipo}
+
+Descrição: #{descricao}
+Valor: #{valor}
+Justificativa: #{justificativa}
+
+    DESCRIPTION
+  end
+
+  def gerar_titulo_cronograma
+    <<-DESCRIPTION
+---
+
+h1. Cronograma de desembolso
+
+    DESCRIPTION
+  end
+
+  def gerar_cronograma_desembolso(titulo, custeio, capital, total)
+    <<-DESCRIPTION
+h2. #{titulo}
+
+Custeio: #{custeio}
+Capital: #{capital}
+Total: #{total}
+
+    DESCRIPTION
+  end
 
 
 

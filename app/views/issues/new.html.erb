@@ -21,12 +21,40 @@
       Justificativa: <%= text_area_tag "issue[justificativa]" %>
     </p>
 
-    <p>
-      Indicadores e relação com as metas:
-      <%= select_tag "" %>
-      Meta:
-      <%= text_field_tag "" %>
-    </p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Indicadores e Relação com as metas</th>
+        <th>Meta</th>
+      </tr>
+      <tr>
+        <td><%= select_tag "" %></td>
+        <td><%= text_field_tag "" %></td>
+      </tr>
+      <tr>
+        <td><%= select_tag "" %></td>
+        <td><%= text_field_tag "" %></td>
+      </tr>
+      <tr>
+        <td><%= select_tag "" %></td>
+        <td><%= text_field_tag "" %></td>
+      </tr>
+      <tr>
+        <td><%= select_tag "" %></td>
+        <td><%= text_field_tag "" %></td>
+      </tr>
+      </thead>
+    </table>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Ações</th>
+        <th>Cronograma</th>
+      </tr>
+      </thead>
+    </table>
+
     <div class="btn-group">
       <%= submit_tag "Submeter Proposta", :class => "btn btn-success" %>
 <% end %>
