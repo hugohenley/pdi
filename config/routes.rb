@@ -2,7 +2,7 @@ Pdi::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root :to => 'application#index'
+  root :to => 'issues#new'
   resources :issues
 
   # Sample of regular route:

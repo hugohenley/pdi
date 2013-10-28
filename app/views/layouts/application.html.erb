@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pdi</title>
-  <%= stylesheet_link_tag "application", "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "application", "bootstrap" %>
+  <title>PDI 2014</title>
+  <%= stylesheet_link_tag "application", "bootstrap", "bootswatch.min", "font-awesome.min", :media => "all" %>
+  <%= javascript_include_tag "application", "bootstrap.min", "bootswatch", "jquery" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<div class="navbar navbar-inverse navbar-fixed-top">
+<body style="">
+<div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <a href="http://bootswatch.com/" class="navbar-brand">PDI 2014</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Submissão de Projetos ao PDI</a>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to "Submeter Projeto", new_issue_path %>
-        </li>
-        <li><a href="#projetos-submetidos">Meus Projetos Submetidos</a></li>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
   </div>
 </div>
-<br/>
-<br/>
-<br/>
+
 <div class="container">
-    <%= yield %>
+  <%= yield %>
 </div>
 <!-- /.container -->
 </body>

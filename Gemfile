@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 source 'https://XXXXXXXX:XXXXXXXX@sistemas.uff.br/sti/gemserver/'
 
 gem 'rails', '3.2.14'
-gem 'twitter-bootstrap-rails'
 
 
 # Bundle edge Rails instead:

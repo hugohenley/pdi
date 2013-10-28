@@ -1,61 +1,147 @@
-<h2>Submeter Nova Proposta ao PDI</h2>
-<%= form_tag issues_path, :method => 'post', :multipart => true do %>
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-12">
+      <img style="float: right; width: 250px" src="http://www.uff.br/sites/default/files/images/logo_pdi_1.png"/>
 
-    <p>
-      Setor Proponente: <%= text_field_tag "issue[setor_proponente]" %>
-    </p>
+      <h1>Submissão de Projetos para o PDI 2014</h1>
 
-    <p>
-      Responsável pelo Projeto: <%= text_field_tag "issue[responsavel_projeto]" %>
-    </p>
+      <p class="lead">Você faz a submissão dos seus projetos aqui e a comissão mista do PDI fará a avaliação</p>
 
-    <p>
-      Título do Projeto: <%= text_field_tag "issue[subject]" %>
-    </p>
+      <p>Para acompanhar os projetos que você submeteu, veja em: https://sistemas.uff.br/</p>
+    </div>
+  </div>
+</div>
+<div class="bs-docs-section">
 
-    <p>
-      Objetivos: <%= text_area_tag "issue[objetivos]" %>
-    </p>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well">
+        <fieldset style="margin-bottom: 20px">
+          <legend>Seus dados</legend>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Nome completo</label>
 
-    <p>
-      Justificativa: <%= text_area_tag "issue[justificativa]" %>
-    </p>
+            <div class="col-lg-10">
+              <p>NOME COMPLETO AQUI</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">CPF</label>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Indicadores e Relação com as metas</th>
-        <th>Meta</th>
-      </tr>
-      <tr>
-        <td><%= select_tag "" %></td>
-        <td><%= text_field_tag "" %></td>
-      </tr>
-      <tr>
-        <td><%= select_tag "" %></td>
-        <td><%= text_field_tag "" %></td>
-      </tr>
-      <tr>
-        <td><%= select_tag "" %></td>
-        <td><%= text_field_tag "" %></td>
-      </tr>
-      <tr>
-        <td><%= select_tag "" %></td>
-        <td><%= text_field_tag "" %></td>
-      </tr>
-      </thead>
-    </table>
+            <div class="col-lg-10">
+              <p><%= usuario_corrente.iduff %></p>
+            </div>
+          </div>
+        </fieldset>
+        <%= form_tag issues_path, method: 'post', multipart: true, class: "bs-example form-horizontal" do %>
+            <fieldset>
+              <legend>Dados do seu projeto proposto para o PDI 2014</legend>
+              <div class="form-group">
+                <label for="inputSetor" class="col-lg-2 control-label">Setor proponente</label>
 
-    <table>
-      <thead>
-      <tr>
-        <th>Ações</th>
-        <th>Cronograma</th>
-      </tr>
-      </thead>
-    </table>
+                <div class="col-lg-5">
+                  <%= text_field_tag "issue[setor_proponente]", nil, :class => "form-control", :id => "inputSetor", :placeholder => "Setor da UFF com sigla" %>
+                  <br/>
+                </div>
+              </div>
 
-    <div class="btn-group">
-      <%= submit_tag "Submeter Proposta", :class => "btn btn-success" %>
-<% end %>
+              <div class="form-group">
+                <label for="inputResponsavel" class="col-lg-2 control-label">Pessoa responsável</label>
+
+                <div class="col-lg-5">
+                  <%= text_field_tag "issue[responsavel_projeto]", nil, :class => "form-control", :id => "inputResponsavel", :placeholder => "Nome Completo" %>
+                  <br/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputTituloProjeto" class="col-lg-2 control-label">Título do Projeto</label>
+
+                <div class="col-lg-6">
+                  <%= text_field_tag "issue[subject]", nil, :class => "form-control", :id => "inputTituloProjeto", :placeholder => "Título claro do projeto" %>
+                  <br/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputObjetivos" class="col-lg-2 control-label">Objetivos <br/>(máx 5 linhas)</label>
+
+                <div class="col-lg-10">
+                  <%= text_area_tag "issue[objetivos]", nil, class: "form-control", rows: "5", id: "inputObjetivos" %>
+                  <br/>
+                  <span class="help-block">Seja claro e direto nos objetivos que você informar.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputJustificativa" class="col-lg-2 control-label">Justificativa <br/>(máx 5 linhas)</label>
+
+                <div class="col-lg-10">
+                  <%= text_area_tag "issue[justificativa]", nil, class: "form-control", rows: "5", id: "inputJustificativa" %>
+                  <span class="help-block">Seja claro e direto na justificativa do projeto.</span>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <h4>Indicadores e relação com as metas</h4>
+
+                <p class="text-danger">Atenção: você precisa informar quanto (meta) o seu projeto vai contribuir para o
+                  indicador selecionado.</p>
+              </div>
+
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <label for="selectIndicador1" class="col-lg-2 control-label">Indicador</label>
+
+                  <div class="col-lg-4">
+                    <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador1") %>
+                  </div>
+                  <label for="inputMeta1" class="col-lg-2 control-label">Meta</label>
+
+                  <div class="col-lg-2">
+                    <input type="text" class="form-control" id="inputMeta1" placeholder="Numérico ou %">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <label for="selectIndicador2" class="col-lg-2 control-label">Indicador</label>
+
+                  <div class="col-lg-4">
+                     <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador2") %>
+                  </div>
+                  <label for="inputMeta2" class="col-lg-2 control-label">Meta</label>
+
+                  <div class="col-lg-2">
+                    <input type="text" class="form-control" id="inputMeta2" placeholder="Numérico ou %">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <label for="selectIndicador3" class="col-lg-2 control-label">Indicador</label>
+                  <div class="col-lg-4">
+                    <%= select("issue", "indicador1", ["1", "2", "3"], class: "form-control", id:"selectIndicador3") %>
+                  </div>
+                  <label for="inputMeta3" class="col-lg-2 control-label">Meta</label>
+
+                  <div class="col-lg-2">
+                    <%= text_field_tag "issue[meta1]", nil, :class => "form-control", :id => "inputResponsavel", :placeholder => "Nome Completo" %>
+                    <input type="text" class="form-control" id="inputMeta3" placeholder="Numérico ou %">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <%= submit_tag "Submeter Proposta", :class => "btn btn-primary" %>
+                </div>
+              </div>
+            </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
