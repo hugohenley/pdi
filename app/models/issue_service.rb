@@ -30,6 +30,10 @@ class IssueService
   #    ]
   #    }
   #}
+  #
+  #  Tracker = Tipo de tarefa
+  #  Status = Situação das tarefas
+  #
   ################################################################
 
   PROJETOS = {submissao_pdi: 1}
