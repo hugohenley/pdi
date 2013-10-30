@@ -56,7 +56,6 @@ class IssueService
 
   def generate_needed_params
     generate_description
-    #@params["issue"].merge!(EXTRA_PARAMS)
   end
 
   private
@@ -172,9 +171,14 @@ h1. Orçamento
 
 h1. Parcerias
 
-Parceiro 1: #{@params["issue"]["parceiro1"]} Contato 1 : #{@params["issue"]["contato1"]}
-Parceiro 1: #{@params["issue"]["parceiro2"]} Contato 2 : #{@params["issue"]["contato2"]}
-Parceiro 1: #{@params["issue"]["parceiro3"]} Contato 3 : #{@params["issue"]["contato3"]}
+Parceiro 1: #{@params["issue"]["parceiro1"]}
+Contato 1 : #{@params["issue"]["contato1"]}
+
+Parceiro 2: #{@params["issue"]["parceiro2"]}
+Contato 2 : #{@params["issue"]["contato2"]}
+
+Parceiro 3: #{@params["issue"]["parceiro3"]}
+Contato 3 : #{@params["issue"]["contato3"]}
 
     DESCRIPTION
   end
