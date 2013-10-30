@@ -39,7 +39,7 @@ class Metodologia
       @params["subject"] = "Ação #{numero + 1} do projeto #{@parent_issue_name}"
       @params["description"] = generate_description(@metodologia, numero)
       @params["parent_issue_id"] = @parent_issue_id
-      issue_params = IssueService.new(@params)
+      issue_params = IssueService.new(@params, :acao)
       Issue.create(issue_params.params)
     end
   end

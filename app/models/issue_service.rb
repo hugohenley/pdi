@@ -44,13 +44,13 @@ class IssueService
   CUSTOM_FIELDS_ID = { iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5 }
 
   EXTRA_PARAMS = { project_id: PROJETOS[:submissao_pdi],
-                  tracker_id: TIPOS[:proposta_projeto],
                   status_id: STATUS[:nao_avaliado] }
 
   attr_accessor :params
 
-  def initialize(params)
+  def initialize(params, tipo_proposta)
     @params = {"issue" => params}
+    EXTRA_PARAMS[:tracker_id] = TIPOS[tipo_proposta]
     @params["issue"].merge!(EXTRA_PARAMS)
   end
 
