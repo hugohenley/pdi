@@ -51,11 +51,12 @@ class IssueService
 
   def initialize(params)
     @params = {"issue" => params}
+    @params["issue"].merge!(EXTRA_PARAMS)
   end
 
   def generate_needed_params
     generate_description
-    @params["issue"].merge!(EXTRA_PARAMS)
+    #@params["issue"].merge!(EXTRA_PARAMS)
   end
 
   private

@@ -1,1 +1,0 @@
-[![Code Climate](https://codeclimate.com/github/hugohenley/pdi.png)](https://codeclimate.com/github/hugohenley/pdi)
