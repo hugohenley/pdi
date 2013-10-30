@@ -7,6 +7,7 @@
 # Ignore bundler config
 /.bundle
 /.idea
+/.elasticbeanstalk
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -18,3 +19,4 @@
 #Ignore configuration files
 /config/login_pdi.yml
 /config/redmine_pdi.yml
+.elasticbeanstalk/
