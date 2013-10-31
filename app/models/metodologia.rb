@@ -26,7 +26,7 @@ class Metodologia
   #]
   #}
 
-  def initialize(metodologia, parent_name, parent_issue_id)
+  def initialize(metodologia, parent_name=nil, parent_issue_id=nil)
     @orcamento = metodologia
     @parent_issue_name = parent_name
     @parent_issue_id = parent_issue_id

@@ -106,11 +106,14 @@ h1. Justificativa
 
 h1. Indicadores
 
-Indicador: #{@params["issue"]["indicador1"]}   Meta: #{@params["issue"]["meta1"]}
+Indicador: #{@params["issue"]["indicador1"]}
+Meta: #{@params["issue"]["meta1"]}
 
-Indicador: #{@params["issue"]["indicador2"]}   Meta: #{@params["issue"]["meta2"]}
+Indicador: #{@params["issue"]["indicador2"]}
+Meta: #{@params["issue"]["meta2"]}
 
-Indicador: #{@params["issue"]["indicador3"]}   Meta: #{@params["issue"]["meta3"]}
+Indicador: #{@params["issue"]["indicador3"]}
+Meta: #{@params["issue"]["meta3"]}
 
     DESCRIPTION
   end
@@ -129,7 +132,7 @@ Fim: #{fim}
   end
 
   def gerar_orcamento
-    params = @params["issue"]
+    @params["issue"]
     description = ""
     description << formatar_tipo_orcamento("Material de Consumo", "descricao", "valor", "justificativa")
     description << formatar_tipo_orcamento("Diárias de Passagens", "descricao", "valor", "justificativa")
