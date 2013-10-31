@@ -2,30 +2,6 @@
 class Metodologia
   attr_accessor :metodologia, :parent_issue_id, :params, :parent_issue_name
 
-  # Request:
-  #"metodologia" => {
-  #    "descricao" => [
-  #        [0] "a",
-  #        [1] "b"
-  #],
-  #    "publico" => [
-  #    [0] "Alunos",
-  #    [1] ""
-  #],
-  #    "q1acao" => [
-  #    [0] "10",
-  #    [1] "11"
-  #],
-  #    "q2acao" => [
-  #    [0] "20",
-  #    [1] "21"
-  #],
-  #    "q3acao" => [
-  #    [0] "30",
-  #    [1] "31"
-  #]
-  #}
-
   def initialize(metodologia, parent_name=nil, parent_issue_id=nil)
     @metodologia = metodologia
     @parent_issue_name = parent_name
