@@ -27,17 +27,17 @@ class Metodologia
   #}
 
   def initialize(metodologia, parent_name=nil, parent_issue_id=nil)
-    @orcamento = metodologia
+    @metodologia = metodologia
     @parent_issue_name = parent_name
     @parent_issue_id = parent_issue_id
     @params = { }
   end
 
   def save
-    numero_campos = @orcamento["descricao"].size
+    numero_campos = @metodologia["descricao"].size
     for numero in (0..numero_campos - 1) do
       @params["subject"] = "Ação #{numero + 1} do projeto #{@parent_issue_name}"
-      @params["description"] = generate_description(@orcamento, numero)
+      @params["description"] = generate_description(@metodologia, numero)
       @params["parent_issue_id"] = @parent_issue_id
       issue_params = IssueService.new(@params, :acao)
       Issue.create(issue_params.params)
