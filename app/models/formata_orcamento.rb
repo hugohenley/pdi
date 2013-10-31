@@ -54,12 +54,11 @@ class FormataOrcamento
   private
   def formatar_descricao(descricao, valor, justificativa, titulo=nil)
     <<-DESCRIPTION
-    h2. #{titulo}
+
+h2. #{titulo}
 
     Descrição: #{descricao}
-
     Valor: #{valor}
-
     Justificativa: #{justificativa}
 
     DESCRIPTION

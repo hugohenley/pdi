@@ -36,21 +36,22 @@ class IssueService
   #
   ################################################################
 
-  PROJETOS = { submissao_pdi: 1 }
-  TIPOS = { proposta_projeto: 1, orcamento: 2, acao: 3 }
-  STATUS = { nao_avaliado: 1, aprovado: 2, reprovado: 3 }
-  PRIORIDADE = { normal: 1, alta: 2, baixa: 3, urgente: 4 }
+  PROJETOS = {submissao_pdi: 1}
+  TIPOS = {proposta_projeto: 1, orcamento: 2, acao: 3}
+  STATUS = {nao_avaliado: 1, aprovado: 2, reprovado: 3}
+  PRIORIDADE = {normal: 1, alta: 2, baixa: 3, urgente: 4}
   CATEGORIA = {}
-  CUSTOM_FIELDS_ID = { iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5 }
+  CUSTOM_FIELDS_ID = {iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5}
 
-  EXTRA_PARAMS = { project_id: PROJETOS[:submissao_pdi],
-                  status_id: STATUS[:nao_avaliado] }
+  EXTRA_PARAMS = {project_id: PROJETOS[:submissao_pdi],
+                  status_id: STATUS[:nao_avaliado]}
 
-  attr_accessor :params, :orcamento
+  attr_accessor :params, :orcamento, :metodologia
 
   def initialize(issue, tipo_proposta, metodologia=nil, orcamento=nil)
-    @params = { "issue" => issue }
+    @params = {"issue" => issue}
     @orcamento = orcamento
+    @metodologia = metodologia
     EXTRA_PARAMS[:tracker_id] = TIPOS[tipo_proposta]
     @params["issue"].merge!(EXTRA_PARAMS)
   end
@@ -66,7 +67,7 @@ class IssueService
     description << formatar_justificativa
     description << gerar_indicadores
     description << formatar_parcerias
-    #description << formatar_metodologia("Ação 1", "Inicio 1", "Fim 1")  Criar ticket do tipo(tracker) ação no Redmine e vincular ao pai
+    description << gerar_metodologia
     description << gerar_orcamento
     description << gerar_titulo_cronograma
     description << gerar_cronograma_desembolso("1o Quadrimestre (Jan-Abril)", @params["issue"]["valor_custeio_1quad"],
@@ -141,6 +142,7 @@ Fim: #{fim}
     description << FormataOrcamento.new(orcamento).servicos_pj
     description << FormataOrcamento.new(orcamento).servicos_pf
     description << calcular_custeio_total
+    description << ""
 
     description << FormataOrcamento.new(orcamento).equipamentos
     description << FormataOrcamento.new(orcamento).mobiliarios
@@ -157,16 +159,14 @@ h1. Orçamento
   end
 
   def calcular_custeio_total
-    params = @params["issue"]
-    total = params["valor_mat_consumo"].to_f + params["valor_diarias"].to_f + params["valor_bolsas_uff"].to_f + params["valor_bolsas_outros"].to_f
-    total += params["valor_pj"].to_f + params["valor_pessoa_fisica"].to_f
-    total.to_s
+    total = orcamento["valor_mat_consumo"].to_f + orcamento["valor_diarias"].to_f + orcamento["valor_bolsas_uff"].to_f + orcamento["valor_bolsas_outros"].to_f
+    total += orcamento["valor_pj"].to_f + orcamento["valor_pessoa_fisica"].to_f
+    "R$#{total.to_s}"
   end
 
   def calcular_capital_total
-    params = @params["issue"]
-    total = params["valor_equipamentos"].to_f + params["valor_mobiliarios"].to_f +  params["valor_obras"].to_f
-    total.to_s
+    total = orcamento["valor_equipamentos"].to_f + orcamento["valor_mobiliarios"].to_f + orcamento["valor_obras"].to_f
+    "R$#{total.to_s}"
   end
 
   def formatar_parcerias
@@ -183,6 +183,14 @@ Contato 2 : #{@params["issue"]["contato2"]}
 Parceiro 3: #{@params["issue"]["parceiro3"]}
 Contato 3 : #{@params["issue"]["contato3"]}
 
+    DESCRIPTION
+  end
+
+  def gerar_metodologia
+    <<-DESCRIPTION
+    h1. Metodologia
+
+#{Metodologia.new(metodologia).descricao_todas_acoes}
     DESCRIPTION
   end
 
@@ -205,8 +213,6 @@ Total: R$#{custeio.to_f + capital.to_f}
 
     DESCRIPTION
   end
-
-
 
 
 end
