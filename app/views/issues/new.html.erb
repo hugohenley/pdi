@@ -272,13 +272,13 @@
         <label class="col-lg-2 control-label">Material de Consumo</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_mat_consumo]", nil, :class => "form-control", :id => "inputDescricaoMaterialConsumo", :placeholder => "Descrição" %>
+          <%= text_field_tag "orcamento[desc_mat_consumo]", nil, :class => "form-control", :id => "inputDescricaoMaterialConsumo", :placeholder => "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_mat_consumo]", nil, :class => "form-control", :id => "inputValorMaterialConsumo", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_mat_consumo]", nil, :class => "form-control", :id => "inputValorMaterialConsumo", :placeholder => "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[just_mat_consumo]", nil, :rows => 3, :class => "form-control", :id => "inputJustificativaMaterialConsumo" %>
+          <%= text_area_tag "orcamento[just_mat_consumo]", nil, :rows => 3, :class => "form-control", :id => "inputJustificativaMaterialConsumo" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -290,13 +290,13 @@
         <label class="col-lg-2 control-label">Diárias e passagens</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_diarias]", nil, :class => "form-control", :id => "inputDiariasPassagens", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_diarias]", nil, :class => "form-control", :id => "inputDiariasPassagens", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_diarias]", nil, :class => "form-control", :id => "inputValorDiariasPassagens", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_diarias]", nil, :class => "form-control", :id => "inputValorDiariasPassagens", :placeholder => "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[just_diarias]", nil, :class => "form-control", :id => "inputJustificativaDiariasPassanges" %>
+          <%= text_area_tag "orcamento[just_diarias]", nil, :class => "form-control", :id => "inputJustificativaDiariasPassanges" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -308,13 +308,13 @@
         <label class="col-lg-2 control-label">Bolsas/Auxílios (para Estudantes da UFF)</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_bolsas_uff]", nil, :class => "form-control", :id => "inputDescricaoBolsasAlunos", :placeholder => "Descrição" %>
+          <%= text_field_tag "orcamento[desc_bolsas_uff]", nil, :class => "form-control", :id => "inputDescricaoBolsasAlunos", :placeholder => "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_bolsas_uff]", nil, :class => "form-control", :id => "inputValorBolsasAlunos", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_bolsas_uff]", nil, :class => "form-control", :id => "inputValorBolsasAlunos", :placeholder => "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_bolsas_uff]", nil, :rows => 5, :class => "form-control", :id => "inputJustificativaBolsasAlunos" %>
+          <%= text_area_tag "orcamento[jus_bolsas_uff]", nil, :rows => 5, :class => "form-control", :id => "inputJustificativaBolsasAlunos" %>
           <span class="help-block">Informe a quantidade de bolsas e respectivos valores.</span>
         </div>
       </div>
@@ -326,13 +326,13 @@
         <label class="col-lg-2 control-label">Bolsas/auxílios (Outros)</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_bolsas_outros]", nil, :class => "form-control", :id => "inputDescricaoBolsasOutros", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_bolsas_outros]", nil, :class => "form-control", :id => "inputDescricaoBolsasOutros", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_bolsas_outros]", nil, :class => "form-control", :id => "inputValorBolsasOutros", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_bolsas_outros]", nil, :class => "form-control", :id => "inputValorBolsasOutros", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_bolsas_outros]", nil, rows: 5, :class => "form-control", :id => "inputJustificativaBolsasOutros" %>
+          <%= text_area_tag "orcamento[jus_bolsas_outros]", nil, rows: 5, :class => "form-control", :id => "inputJustificativaBolsasOutros" %>
           <span class="help-block">Informe a quantidade de bolsas e respectivos valores.</span>
         </div>
       </div>
@@ -344,13 +344,13 @@
         <label class="col-lg-2 control-label">Serviços de Pessoa Jurídica</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_pj]", nil, :class => "form-control", :id => "inputDescricaoPJ", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_pj]", nil, :class => "form-control", :id => "inputDescricaoPJ", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_pj]", nil, :class => "form-control", :id => "inputValorPJ", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_pj]", nil, :class => "form-control", :id => "inputValorPJ", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_pj]", nil, :class => "form-control", :id => "inputJustificativaPJ" %>
+          <%= text_area_tag "orcamento[jus_pj]", nil, :class => "form-control", :id => "inputJustificativaPJ" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -362,13 +362,13 @@
         <label class="col-lg-2 control-label">Serviços de Pessoa Física</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_pessoa_fisica]", nil, :class => "form-control", :id => "inputDescricaoPF", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_pessoa_fisica]", nil, :class => "form-control", :id => "inputDescricaoPF", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_pessoa_fisica]", nil, :class => "form-control", :id => "inputValorPF", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_pessoa_fisica]", nil, :class => "form-control", :id => "inputValorPF", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_pessoa_fisica]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaPF" %>
+          <%= text_area_tag "orcamento[jus_pessoa_fisica]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaPF" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -421,13 +421,13 @@
         <label class="col-lg-2 control-label">Equipamentos</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_equipamentos]", nil, :class => "form-control", :id => "inputDescricaoEquipamentos", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_equipamentos]", nil, :class => "form-control", :id => "inputDescricaoEquipamentos", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_equipamentos]", nil, :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_equipamentos]", nil, :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_equipamentos]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaEquipamentos" %>
+          <%= text_area_tag "orcamento[jus_equipamentos]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaEquipamentos" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -439,13 +439,13 @@
         <label class="col-lg-2 control-label">Mobiliários</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_mobiliarios]", nil, :class => "form-control", :id => "inputMobiliarios", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_mobiliarios]", nil, :class => "form-control", :id => "inputMobiliarios", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_mobiliarios]", nil, :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_mobiliarios]", nil, :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_mobiliarios]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaMobiliarios" %>
+          <%= text_area_tag "orcamento[jus_mobiliarios]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaMobiliarios" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>
@@ -457,13 +457,13 @@
         <label class="col-lg-2 control-label">Obras e instalações</label>
 
         <div class="col-lg-4">
-          <%= text_field_tag "issue[desc_obras]", nil, :class => "form-control", :id => "inputDescricaoObrasInstalacoes", placeholder: "Descrição" %>
+          <%= text_field_tag "orcamento[desc_obras]", nil, :class => "form-control", :id => "inputDescricaoObrasInstalacoes", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "issue[valor_obras]", nil, :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_obras]", nil, :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
-          <%= text_area_tag "issue[jus_obras]", nil, :class => "form-control", :id => "inputJustificativaObrasInstalacoes" %>
+          <%= text_area_tag "orcamento[jus_obras]", nil, :class => "form-control", :id => "inputJustificativaObrasInstalacoes" %>
           <span class="help-block">Justifique a necessidade desse orçamento.</span>
         </div>
       </div>

@@ -13,6 +13,10 @@ class IssuesController < ApplicationController
     if issue.save
       metodologia = Metodologia.new(params["metodologia"], issue.subject, issue.id)
       metodologia.save
+
+      orcamento = Orcamento.new(params["orcamento"], issue.subject, issue.id)
+      orcamento.save
+
       redirect_to root_path, :notice => "Projeto submetido com sucesso!"
     else
       render :new, :alert => "Houve algum problema com o envio de seus dados."
