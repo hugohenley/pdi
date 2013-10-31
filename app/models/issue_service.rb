@@ -161,12 +161,12 @@ h1. Orçamento
   def calcular_custeio_total
     total = orcamento["valor_mat_consumo"].to_f + orcamento["valor_diarias"].to_f + orcamento["valor_bolsas_uff"].to_f + orcamento["valor_bolsas_outros"].to_f
     total += orcamento["valor_pj"].to_f + orcamento["valor_pessoa_fisica"].to_f
-    "R$#{total.to_s}"
+    "Custeio Total: R$#{total.to_s}"
   end
 
   def calcular_capital_total
     total = orcamento["valor_equipamentos"].to_f + orcamento["valor_mobiliarios"].to_f + orcamento["valor_obras"].to_f
-    "R$#{total.to_s}"
+    "Capital Total: R$#{total.to_s}"
   end
 
   def formatar_parcerias
