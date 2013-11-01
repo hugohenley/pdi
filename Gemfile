@@ -2,13 +2,10 @@ source 'https://rubygems.org'
 source 'https://XXXXXXXX:XXXXXXXX@sistemas.uff.br/sti/gemserver/'
 
 gem 'rails', '3.2.14'
-
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 gem 'portal-sso', '0.0.2'
+gem 'newrelic_rpm', '3.6.3.104'
+gem 'SyslogLogger', '1.4.1'
 
 # Gems used only for assets and not required
 # in production environments by default.

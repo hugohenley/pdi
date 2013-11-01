@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   remote: https://XXXXXXXX:XXXXXXXX@sistemas.uff.br/sti/gemserver/
   specs:
+    SyslogLogger (1.4.1)
     actionmailer (3.2.14)
       actionpack (= 3.2.14)
       mail (~> 2.5.4)
@@ -66,6 +67,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25)
     multi_json (1.8.2)
+    newrelic_rpm (3.6.3.104)
     polyglot (0.3.3)
     portal-sso (0.0.2)
       actionpack
@@ -132,12 +134,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  SyslogLogger (= 1.4.1)
   awesome_print
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
   jquery-rails
   meta_request
+  newrelic_rpm (= 3.6.3.104)
   portal-sso (= 0.0.2)
   pry
   rails (= 3.2.14)
