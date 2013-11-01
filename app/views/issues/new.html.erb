@@ -424,7 +424,7 @@
           <%= text_field_tag "orcamento[desc_equipamentos]", nil, :class => "form-control", :id => "inputDescricaoEquipamentos", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_equipamentos]", nil, :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_equipamentos]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_equipamentos]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaEquipamentos" %>
@@ -442,7 +442,7 @@
           <%= text_field_tag "orcamento[desc_mobiliarios]", nil, :class => "form-control", :id => "inputMobiliarios", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_mobiliarios]", nil, :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_mobiliarios]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_mobiliarios]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaMobiliarios" %>
@@ -460,7 +460,7 @@
           <%= text_field_tag "orcamento[desc_obras]", nil, :class => "form-control", :id => "inputDescricaoObrasInstalacoes", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_obras]", nil, :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_obras]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_obras]", nil, :class => "form-control", :id => "inputJustificativaObrasInstalacoes" %>
@@ -479,7 +479,7 @@
         </div>
         <div class="col-lg-2">
           <p class="text-success alert">
-            <b id="total_capital">R$ 100.000,00</b>
+            <b id="total_capital">R$ 0,00</b>
           </p>
         </div>
         <div class="col-lg-4">

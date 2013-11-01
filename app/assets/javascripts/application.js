@@ -24,3 +24,11 @@ function totalCusteio() {
     total += $("#inputValorPF")[0].value == "" ? 0 : parseFloat($("#inputValorPF")[0].value.replace(",", "."));
     document.getElementById('total_custeio').innerHTML = "R$ " + (total).toString()
 }
+
+function totalCapital() {
+    var total = 0
+    total += $("#inputValorEquipamentos")[0].value == "" ? 0 : parseFloat($("#inputValorEquipamentos")[0].value.replace(",", "."));
+    total += $("#inputValorMobiliarios")[0].value == "" ? 0 : parseFloat($("#inputValorMobiliarios")[0].value.replace(",", "."));
+    total += $("#inputValorObrasInstalacoes")[0].value == "" ? 0 : parseFloat($("#inputValorObrasInstalacoes")[0].value.replace(",", "."));
+    document.getElementById('total_capital').innerHTML = "R$ " + (total).toString()
+}
