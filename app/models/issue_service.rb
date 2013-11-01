@@ -142,7 +142,6 @@ Fim: #{fim}
     description << FormataOrcamento.new(orcamento).servicos_pj
     description << FormataOrcamento.new(orcamento).servicos_pf
     description << calcular_custeio_total
-    description << ""
 
     description << FormataOrcamento.new(orcamento).equipamentos
     description << FormataOrcamento.new(orcamento).mobiliarios

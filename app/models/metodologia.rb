@@ -12,6 +12,7 @@ class Metodologia
   def save
     numero_campos = @metodologia["descricao"].size
     for numero in (0..numero_campos - 1) do
+      next if metodologia["descricao"][numero].empty?
       @params["subject"] = "Ação #{numero + 1} do projeto #{@parent_issue_name}"
       @params["description"] = generate_description(@metodologia, numero)
       @params["parent_issue_id"] = @parent_issue_id
@@ -24,6 +25,7 @@ class Metodologia
     descricao = ""
     numero_campos = @metodologia["descricao"].size
     for numero in (0..numero_campos - 1) do
+      next if metodologia["descricao"][numero].empty?
       descricao << generate_description(@metodologia, numero)
     end
     descricao
