@@ -7,6 +7,9 @@
 development:
     url: http://local.ntp.uff.br:3001
 
+homologacao:
+    url: http://url_jenkins
+
 test:
     url: url_jenkins
 

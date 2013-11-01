@@ -14,6 +14,10 @@ test:
     user: admin
     password: admin
 
+homologacao:
+    user: admin
+    password: admin
+
 production:
     user: admin
     password: admin
