@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function totalCusteio() {
+    var total = 0
+    total += $("#inputValorMaterialConsumo")[0].value == "" ? 0 : parseFloat($("#inputValorMaterialConsumo")[0].value.replace(",", "."));
+    total += $("#inputValorDiariasPassagens")[0].value == "" ? 0 : parseFloat($("#inputValorDiariasPassagens")[0].value.replace(",", "."));
+    total += $("#inputValorBolsasAlunos")[0].value == "" ? 0 : parseFloat($("#inputValorBolsasAlunos")[0].value.replace(",", "."));
+    total += $("#inputValorBolsasOutros")[0].value == "" ? 0 : parseFloat($("#inputValorBolsasOutros")[0].value.replace(",", "."));
+    total += $("#inputValorPJ")[0].value == "" ? 0 : parseFloat($("#inputValorPJ")[0].value.replace(",", "."));
+    total += $("#inputValorPF")[0].value == "" ? 0 : parseFloat($("#inputValorPF")[0].value.replace(",", "."));
+    document.getElementById('total_custeio').innerHTML = "R$ " + (total).toString()
+}
