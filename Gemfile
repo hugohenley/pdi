@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'portal-sso', '0.0.2'
 gem 'newrelic_rpm', '3.6.3.104'
 gem 'SyslogLogger', '1.4.1'
+gem 'nokogiri', '1.6.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
