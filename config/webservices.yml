@@ -1,0 +1,27 @@
+#development:
+#    url_dados_basicos: http://sistemas.uff.br
+#    key_dados_basicos: admin
+#
+#test:
+#    user: admin
+#    password: admin
+#
+#homologacao:
+#    user: admin
+#    password: admin
+
+development:
+    url_dados_basicos: http://sistemas.uff.br
+    key_dados_basicos: admin
+
+test:
+    url_dados_basicos: http://sistemas.uff.br
+    key_dados_basicos: admin
+
+homologacao:
+    url_dados_basicos: http://sistemas.uff.br
+    key_dados_basicos: admin
+
+production:
+    url_dados_basicos: http://sistemas.uff.br
+    key_dados_basicos: admin

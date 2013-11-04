@@ -1,0 +1,2 @@
+WS_DADOS_BASICOS = YAML.load_file(Rails.root.join("config","webservices.yml"))[Rails.env]["url_dados_basicos"]
+KEY_DADOS_BASICOS = YAML.load_file(Rails.root.join("config","webservices.yml"))[Rails.env]["key_dados_basicos"]
