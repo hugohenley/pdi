@@ -32,3 +32,10 @@ function totalCapital() {
     total += $("#inputValorObrasInstalacoes")[0].value == "" ? 0 : parseFloat($("#inputValorObrasInstalacoes")[0].value.replace(",", "."));
     document.getElementById('total_capital').innerHTML = "R$ " + (total).toString()
 }
+
+
+function adicionaAcao() {
+    $('#acao').append('<tr><td><input class="form-control" id="inputDescricaoAcao1" name="metodologia[descricao][]" placeholder="Descrição" type="text" /></td><td><input class="form-control" id="inputPublicoAcao1" name="metodologia[publico][]" placeholder="Público" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ1Acao1" name="metodologia[q1acao][]" placeholder="%" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ2Acao1" name="metodologia[q2acao][]" placeholder="%" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ3Acao1" name="metodologia[q3acao][]" placeholder="%" type="text" /></td></tr>')
+}
+
+
