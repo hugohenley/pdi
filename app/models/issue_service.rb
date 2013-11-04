@@ -36,15 +36,15 @@ class IssueService
   #
   ################################################################
 
-  PROJETOS = {submissao_pdi: 1}
-  TIPOS = {proposta_projeto: 1, orcamento: 2, acao: 3}
-  STATUS = {nao_avaliado: 1, aprovado: 2, reprovado: 3}
-  PRIORIDADE = {normal: 1, alta: 2, baixa: 3, urgente: 4}
-  CATEGORIA = {}
-  CUSTOM_FIELDS_ID = {iduff_solicitante: 2, vinculo: 3, setor_proponente: 4, responsavel_projeto: 5}
+  CONFIG_IDS = YAML.load_file(Rails.root.join("config","redmine_ids.yml"))[Rails.env]
+  PROJETOS = CONFIG_IDS["projetos"]
+  TIPOS = CONFIG_IDS["tipos"]
+  STATUS = CONFIG_IDS["status"]
+  PRIORIDADE = CONFIG_IDS["prioridade"]
+  CUSTOM_FIELDS_ID = CONFIG_IDS["custom_fields_id"]
 
-  EXTRA_PARAMS = {project_id: PROJETOS[:submissao_pdi],
-                  status_id: STATUS[:nao_avaliado]}
+  EXTRA_PARAMS = {project_id: PROJETOS["submissao_pdi"],
+                  status_id: STATUS["nao_avaliado"]}
 
   attr_accessor :params, :orcamento, :metodologia
 

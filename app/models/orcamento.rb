@@ -27,7 +27,7 @@ class Orcamento
       @params["subject"] = "Orçamento de #{nome_orcamento} do projeto #{@parent_issue_name}"
       @params["description"] = descricao
       @params["parent_issue_id"] = @parent_issue_id
-      issue_params = IssueService.new(@params, :orcamento)
+      issue_params = IssueService.new(@params, "orcamento")
       Issue.create(issue_params.params)
     end
   end

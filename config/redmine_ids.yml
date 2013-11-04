@@ -1,0 +1,87 @@
+development:
+    projetos:
+      submissao_pdi: 1
+    tipos:
+      proposta_projeto: 1
+      orcamento: 2
+      acao: 3
+    status:
+      nao_avaliado: 1
+      aprovado: 2
+      reprovado: 3
+    prioridade:
+      normal: 1
+      alta: 2
+      baixa: 3
+      urgente: 4
+    custom_fields_id:
+      iduff_solicitante: 2
+      vinculo: 3
+      setor_proponente: 4
+      responsavel_projeto: 5
+
+homologacao:
+    projetos:
+      submissao_pdi: 1
+    tipos:
+      proposta_projeto: 1
+      orcamento: 2
+      acao: 3
+    status:
+      nao_avaliado: 1
+      aprovado: 2
+      reprovado: 3
+    prioridade:
+      normal: 1
+      alta: 2
+      baixa: 3
+      urgente: 4
+    custom_fields_id:
+      iduff_solicitante: 2
+      vinculo: 3
+      setor_proponente: 4
+      responsavel_projeto: 5
+
+test:
+    projetos:
+      submissao_pdi: 1
+    tipos:
+      proposta_projeto: 1
+      orcamento: 2
+      acao: 3
+    status:
+      nao_avaliado: 1
+      aprovado: 2
+      reprovado: 3
+    prioridade:
+      normal: 1
+      alta: 2
+      baixa: 3
+      urgente: 4
+    custom_fields_id:
+      iduff_solicitante: 2
+      vinculo: 3
+      setor_proponente: 4
+      responsavel_projeto: 5
+
+production:
+    projetos:
+      submissao_pdi: 1
+    tipos:
+      proposta_projeto: 1
+      orcamento: 2
+      acao: 3
+    status:
+      nao_avaliado: 1
+      aprovado: 2
+      reprovado: 3
+    prioridade:
+      normal: 1
+      alta: 2
+      baixa: 3
+      urgente: 4
+    custom_fields_id:
+      iduff_solicitante: 2
+      vinculo: 3
+      setor_proponente: 4
+      responsavel_projeto: 5
