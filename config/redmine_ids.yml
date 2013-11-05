@@ -66,22 +66,22 @@ test:
 
 production:
     projetos:
-      submissao_pdi: 1
+      submissao_pdi: 79
     tipos:
-      proposta_projeto: 1
-      orcamento: 2
-      acao: 3
+      proposta_projeto: 9
+      orcamento: 8
+      acao: 4
     status:
-      nao_avaliado: 1
-      aprovado: 2
-      reprovado: 3
+      nao_avaliado: 7
+      aprovado: 8
+      reprovado: 9
     prioridade:
       normal: 1
       alta: 2
       baixa: 3
       urgente: 4
     custom_fields_id:
-      iduff_solicitante: 2
-      vinculo: 3
-      setor_proponente: 4
-      responsavel_projeto: 5
+      iduff_solicitante: 20
+      vinculo: 21
+      setor_proponente: 22
+      responsavel_projeto: 23
