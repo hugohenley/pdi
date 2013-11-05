@@ -94,7 +94,7 @@
         <label for="selectIndicador1" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador1", grouped_options_for_select(indicadores), include_blank: true, id: "selectIndicador1") %>
+          <%= select("issue", "indicador1", grouped_options_for_select(indicadores), {include_blank: true, id: "selectIndicador1"}, {class: "form-control"}) %>
         </div>
         <label for="inputMeta1" class="col-lg-2 control-label">Meta</label>
 
@@ -109,7 +109,7 @@
         <label for="selectIndicador2" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador2", grouped_options_for_select(indicadores), include_blank: true, class: "form-control", id: "selectIndicador2") %>
+          <%= select("issue", "indicador2", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador2" }, {class: "form-control"}) %>
         </div>
         <label for="inputMeta2" class="col-lg-2 control-label">Meta</label>
 
@@ -124,7 +124,7 @@
         <label for="selectIndicador3" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador3", grouped_options_for_select(indicadores), include_blank: true, class: "form-control", id: "selectIndicador3") %>
+          <%= select("issue", "indicador3", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador3" }, {class: "form-control"}) %>
         </div>
         <label for="inputMeta3" class="col-lg-2 control-label">Meta</label>
 
