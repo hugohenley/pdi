@@ -76,10 +76,11 @@ production:
       aprovado: 8
       reprovado: 9
     prioridade:
-      normal: 1
-      alta: 2
-      baixa: 3
+      normal: 2
+      alta: 3
+      baixa: 1
       urgente: 4
+      imediata: 5
     custom_fields_id:
       iduff_solicitante: 20
       vinculo: 21
