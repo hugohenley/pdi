@@ -117,6 +117,12 @@ Meta: #{@params["issue"]["meta2"]}
 Indicador: #{@params["issue"]["indicador3"]}
 Meta: #{@params["issue"]["meta3"]}
 
+Indicador: #{@params["issue"]["indicador4"]}
+Meta: #{@params["issue"]["meta4"]}
+
+Indicador: #{@params["issue"]["indicador5"]}
+Meta: #{@params["issue"]["meta5"]}
+
     DESCRIPTION
   end
 
