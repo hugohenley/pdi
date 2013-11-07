@@ -22,7 +22,7 @@ class Metodologia
   end
 
   def descricao_todas_acoes
-    descricao = ""
+    descricao = descricao_metodologia(@metodologia)
     numero_campos = @metodologia["descricao"].size
     for numero in (0..numero_campos - 1) do
       next if metodologia["descricao"][numero].empty?
@@ -32,6 +32,14 @@ class Metodologia
   end
 
   private
+  def descricao_metodologia(metodologia)
+    <<-DESCRIPTION
+
+    Descrição de Metodologia: #{metodologia["descricao_metodologia"]}
+
+    DESCRIPTION
+  end
+
   def generate_description(metodologia, indice)
     <<-DESCRIPTION
 

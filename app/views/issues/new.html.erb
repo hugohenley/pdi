@@ -7,8 +7,14 @@
 
       <p class="lead">Você faz a submissão dos seus projetos aqui e a comissão mista do PDI fará a avaliação</p>
 
-      <p>Para acompanhar os projetos que você submeteu, veja em: https://sistemas.uff.br/</p>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <strong>Uma vez enviado, não será possível alterar o projeto. Sugerimos que redija com atenção os campos necessários
+      em um editor de texto e somente depois coloque os dados nesse formulário.</strong>
   </div>
 </div>
 <div class="bs-docs-section">
@@ -109,7 +115,7 @@
         <label for="selectIndicador2" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador2", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador2" }, {class: "form-control"}) %>
+          <%= select("issue", "indicador2", grouped_options_for_select(indicadores), {include_blank: true, id: "selectIndicador2"}, {class: "form-control"}) %>
         </div>
         <label for="inputMeta2" class="col-lg-2 control-label">Meta</label>
 
@@ -124,7 +130,7 @@
         <label for="selectIndicador3" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador3", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador3" }, {class: "form-control"}) %>
+          <%= select("issue", "indicador3", grouped_options_for_select(indicadores), {include_blank: true, id: "selectIndicador3"}, {class: "form-control"}) %>
         </div>
         <label for="inputMeta3" class="col-lg-2 control-label">Meta</label>
 
@@ -139,7 +145,7 @@
         <label for="selectIndicador4" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador4", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador4" }, {class: "form-control"}) %>
+          <%= select("issue", "indicador4", grouped_options_for_select(indicadores), {include_blank: true, id: "selectIndicador4"}, {class: "form-control"}) %>
         </div>
         <label for="inputMeta4" class="col-lg-2 control-label">Meta</label>
 
@@ -154,7 +160,7 @@
         <label for="selectIndicador5" class="col-lg-2 control-label">Indicador</label>
 
         <div class="col-lg-4">
-          <%= select("issue", "indicador5", grouped_options_for_select(indicadores), { include_blank: true, id: "selectIndicador5" }, {class: "form-control"}) %>
+          <%= select("issue", "indicador5", grouped_options_for_select(indicadores), {include_blank: true, id: "selectIndicador5"}, {class: "form-control"}) %>
         </div>
         <label for="inputMeta5" class="col-lg-2 control-label">Meta</label>
 
@@ -219,7 +225,19 @@
       <p class="text-danger">No caso de parcerias, as ações de cada setor devem estar explícitas (max 40 linhas)</p>
     </div>
 
-    <button type="button" class="btn btn-success pull-right" style="margin-bottom: 15px" onclick="adicionaAcao()">Adicionar outra ação</button>
+    <div class="form-group">
+      <div class="col-lg-9">
+        <label class="col-lg-3 control-label">Descrição da Metodologia</label>
+
+        <div class="col-lg-6">
+          <%= text_area_tag "metodologia[descricao_metodologia]", nil, :rows => 5, :class => "form-control", :id => "inputDescricaoMetodologia" %>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-success pull-right" style="margin-bottom: 15px" onclick="adicionaAcao()">Adicionar
+      outra ação
+    </button>
 
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
@@ -227,29 +245,29 @@
         <tr class="success">
           <th>Descrição</th>
           <th>Público alvo</th>
-          <th>1º Quad. (Jan-Abr) <span class="label label-warning">% finalizado</span></th>
-          <th>2º Quad. (Mai-Ago) <span class="label label-warning">% finalizado</span></th>
-          <th>3º Quad. (Set-Dez) <span class="label label-warning">% finalizado</span></th>
+          <th>1º Quad. (Jan-Abr) <span class="label label-warning">% acumulado</span></th>
+          <th>2º Quad. (Mai-Ago) <span class="label label-warning">% acumulado</span></th>
+          <th>3º Quad. (Set-Dez) <span class="label label-warning">% acumulado</span></th>
         </tr>
         </thead>
         <tbody id="acao">
-          <tr>
-            <td>
-              <%= text_field_tag "metodologia[descricao][]", nil, :class => "form-control", :id => "inputDescricaoAcao1", :placeholder => "Descrição" %>
-            </td>
-            <td>
-              <%= text_field_tag "metodologia[publico][]", nil, :class => "form-control", :id => "inputPublicoAcao1", :placeholder => "Público" %>
-            </td>
-            <td class="warning">
-              <%= text_field_tag "metodologia[q1acao][]", nil, :class => "form-control", :id => "inputCronogramaQ1Acao1", :placeholder => "%" %>
-            </td>
-            <td class="warning">
-              <%= text_field_tag "metodologia[q2acao][]", nil, :class => "form-control", :id => "inputCronogramaQ2Acao1", :placeholder => "%" %>
-            </td>
-            <td class="warning">
-              <%= text_field_tag "metodologia[q3acao][]", nil, :class => "form-control", :id => "inputCronogramaQ3Acao1", :placeholder => "%" %>
-            </td>
-          </tr>
+        <tr>
+          <td>
+            <%= text_field_tag "metodologia[descricao][]", nil, :class => "form-control", :id => "inputDescricaoAcao1", :placeholder => "Descrição" %>
+          </td>
+          <td>
+            <%= text_field_tag "metodologia[publico][]", nil, :class => "form-control", :id => "inputPublicoAcao1", :placeholder => "Público" %>
+          </td>
+          <td class="warning">
+            <%= text_field_tag "metodologia[q1acao][]", nil, :class => "form-control", :id => "inputCronogramaQ1Acao1", :placeholder => "%" %>
+          </td>
+          <td class="warning">
+            <%= text_field_tag "metodologia[q2acao][]", nil, :class => "form-control", :id => "inputCronogramaQ2Acao1", :placeholder => "%" %>
+          </td>
+          <td class="warning">
+            <%= text_field_tag "metodologia[q3acao][]", nil, :class => "form-control", :id => "inputCronogramaQ3Acao1", :placeholder => "%" %>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -259,7 +277,7 @@
       <h4>Orçamento de Custeio</h4>
 
       <p class="text-danger">Informe o orçamento de custeio para o seu projeto. Seja específico pois não serão
-        permitidas alterações.</p>
+        permitidas alterações de rubrica do orçamento.</p>
     </div>
 
     <div class="form-group">
@@ -288,7 +306,7 @@
           <%= text_field_tag "orcamento[desc_mat_consumo]", nil, :class => "form-control", :id => "inputDescricaoMaterialConsumo", :placeholder => "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_mat_consumo]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorMaterialConsumo", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_mat_consumo]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorMaterialConsumo", :placeholder => "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[just_mat_consumo]", nil, :rows => 3, :class => "form-control", :id => "inputJustificativaMaterialConsumo" %>
@@ -306,7 +324,7 @@
           <%= text_field_tag "orcamento[desc_diarias]", nil, :class => "form-control", :id => "inputDiariasPassagens", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_diarias]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorDiariasPassagens", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_diarias]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorDiariasPassagens", :placeholder => "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[just_diarias]", nil, :class => "form-control", :id => "inputJustificativaDiariasPassanges" %>
@@ -324,7 +342,7 @@
           <%= text_field_tag "orcamento[desc_bolsas_uff]", nil, :class => "form-control", :id => "inputDescricaoBolsasAlunos", :placeholder => "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_bolsas_uff]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorBolsasAlunos", :placeholder => "Valor" %>
+          <%= text_field_tag "orcamento[valor_bolsas_uff]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorBolsasAlunos", :placeholder => "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_bolsas_uff]", nil, :rows => 5, :class => "form-control", :id => "inputJustificativaBolsasAlunos" %>
@@ -342,7 +360,7 @@
           <%= text_field_tag "orcamento[desc_bolsas_outros]", nil, :class => "form-control", :id => "inputDescricaoBolsasOutros", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_bolsas_outros]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorBolsasOutros", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_bolsas_outros]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorBolsasOutros", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_bolsas_outros]", nil, rows: 5, :class => "form-control", :id => "inputJustificativaBolsasOutros" %>
@@ -360,7 +378,7 @@
           <%= text_field_tag "orcamento[desc_pj]", nil, :class => "form-control", :id => "inputDescricaoPJ", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_pj]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorPJ", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_pj]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorPJ", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_pj]", nil, :class => "form-control", :id => "inputJustificativaPJ" %>
@@ -378,7 +396,7 @@
           <%= text_field_tag "orcamento[desc_pessoa_fisica]", nil, :class => "form-control", :id => "inputDescricaoPF", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_pessoa_fisica]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorPF", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_pessoa_fisica]", nil, onChange: "totalCusteio()", :class => "form-control", :id => "inputValorPF", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_pessoa_fisica]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaPF" %>
@@ -437,7 +455,7 @@
           <%= text_field_tag "orcamento[desc_equipamentos]", nil, :class => "form-control", :id => "inputDescricaoEquipamentos", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_equipamentos]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_equipamentos]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorEquipamentos", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_equipamentos]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaEquipamentos" %>
@@ -455,7 +473,7 @@
           <%= text_field_tag "orcamento[desc_mobiliarios]", nil, :class => "form-control", :id => "inputMobiliarios", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_mobiliarios]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_mobiliarios]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorMobiliarios", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_mobiliarios]", nil, rows: 3, :class => "form-control", :id => "inputJustificativaMobiliarios" %>
@@ -473,7 +491,7 @@
           <%= text_field_tag "orcamento[desc_obras]", nil, :class => "form-control", :id => "inputDescricaoObrasInstalacoes", placeholder: "Descrição" %>
         </div>
         <div class="col-lg-2">
-          <%= text_field_tag "orcamento[valor_obras]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor" %>
+          <%= text_field_tag "orcamento[valor_obras]", nil, onChange: "totalCapital()", :class => "form-control", :id => "inputValorObrasInstalacoes", placeholder: "Valor (Ex: 10000,50)" %>
         </div>
         <div class="col-lg-4">
           <%= text_area_tag "orcamento[jus_obras]", nil, :class => "form-control", :id => "inputJustificativaObrasInstalacoes" %>
@@ -504,7 +522,8 @@
     <div class="col-lg-12" style="margin: 60px 0px 30px 0px">
       <h4>Cronograma de desembolso</h4>
 
-      <p class="text-danger">Informe como o seu orçamento será gasto ao longo do tempo.</p>
+      <p class="text-danger">Informe como o seu orçamento será gasto ao longo do tempo. Os valores em cada quadrimestre
+        não são cumulativos.</p>
     </div>
 
     <div class="form-group">
