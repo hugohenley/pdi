@@ -37,5 +37,27 @@ function totalCapital() {
 function adicionaAcao() {
     $('#acao').append('<tr><td><input class="form-control" id="inputDescricaoAcao1" name="metodologia[descricao][]" placeholder="Descrição" type="text" /></td><td><input class="form-control" id="inputPublicoAcao1" name="metodologia[publico][]" placeholder="Público" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ1Acao1" name="metodologia[q1acao][]" placeholder="%" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ2Acao1" name="metodologia[q2acao][]" placeholder="%" type="text" /></td><td class="warning"><input class="form-control" id="inputCronogramaQ3Acao1" name="metodologia[q3acao][]" placeholder="%" type="text" /></td></tr>')
 }
+function limitaTextoJustificativa(valor) {
+    quantidade = 1000;
+    total = valor.length;
 
+    if(total <= quantidade) {
+        resto = quantidade - total;
+        document.getElementById('caracteresJustificativa').innerHTML = resto;
+    } else {
+        document.getElementById('inputJustificativa').value = valor.substr(0, quantidade);
+    }
+}
+
+function limitaTextoObjetivos(valor) {
+    quantidade = 1000;
+    total = valor.length;
+
+    if(total <= quantidade) {
+        resto = quantidade - total;
+        document.getElementById('caracteresObjetivos').innerHTML = resto;
+    } else {
+        document.getElementById('inputObjetivos').value = valor.substr(0, quantidade);
+    }
+}
 

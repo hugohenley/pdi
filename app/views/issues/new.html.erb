@@ -70,20 +70,20 @@
     </div>
 
     <div class="form-group">
-      <label for="inputObjetivos" class="col-lg-2 control-label">Objetivos <br/>(máx 5 linhas)</label>
+      <label for="inputObjetivos" class="col-lg-2 control-label">Objetivos <br/>(<span id="caracteresObjetivos">1000</span> caracteres restantes)</label>
 
       <div class="col-lg-10">
-        <%= text_area_tag "issue[objetivos]", nil, class: "form-control", rows: "5", id: "inputObjetivos" %>
+        <%= text_area_tag "issue[objetivos]", nil, onkeyup: "limitaTextoObjetivos(this.value)",class: "form-control", rows: "5", id: "inputObjetivos" %>
         <br/>
         <span class="help-block">Seja claro e direto nos objetivos que você informar.</span>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="inputJustificativa" class="col-lg-2 control-label">Justificativa <br/>(máx 5 linhas)</label>
+      <label for="inputJustificativa" class="col-lg-2 control-label">Justificativa <br/>(<span id="caracteresJustificativa">1000</span> caracteres restantes)</label>
 
       <div class="col-lg-10">
-        <%= text_area_tag "issue[justificativa]", nil, class: "form-control", rows: "5", id: "inputJustificativa" %>
+        <%= text_area_tag "issue[justificativa]", nil, onkeyup: "limitaTextoJustificativa(this.value)", class: "form-control", rows: "5", id: "inputJustificativa" %>
         <span class="help-block">Seja claro e direto na justificativa do projeto.</span>
       </div>
     </div>
