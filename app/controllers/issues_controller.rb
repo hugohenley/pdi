@@ -23,7 +23,7 @@ class IssuesController < ApplicationController
         flash[:error] = "Erro ao submeter os dados."
         render :new
       end
-    rescue
+    rescue Exception => e
       flash[:error] = "Houve um problema de comunicação com o servidor. Tente novamente mais tarde."
       render :new
     end
