@@ -18,7 +18,7 @@ class IssuesController < ApplicationController
         orcamento = Orcamento.new(params["orcamento"], issue.subject, issue.id)
         orcamento.save
 
-        redirect_to root_path, :notice => "Projeto submetido com sucesso!"
+        redirect_to root_path, :notice => "Projeto submetido com sucesso! Acesse em: #{montar_url_submissao(issue.id)}"
       else
         flash[:error] = "Erro ao submeter os dados."
         render :new
@@ -27,6 +27,11 @@ class IssuesController < ApplicationController
       flash[:error] = "Houve um problema de comunicação com o servidor. Tente novamente mais tarde."
       render :new
     end
+  end
+
+  private
+  def montar_url_submissao(id)
+    "#{URL_PDI}/issues/#{id}"
   end
 
 end
