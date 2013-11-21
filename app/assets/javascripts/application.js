@@ -41,7 +41,7 @@ function limitaTextoJustificativa(valor) {
     quantidade = 1000;
     total = valor.length;
 
-    if(total <= quantidade) {
+    if (total <= quantidade) {
         resto = quantidade - total;
         document.getElementById('caracteresJustificativa').innerHTML = resto;
     } else {
@@ -53,11 +53,30 @@ function limitaTextoObjetivos(valor) {
     quantidade = 1000;
     total = valor.length;
 
-    if(total <= quantidade) {
+    if (total <= quantidade) {
         resto = quantidade - total;
         document.getElementById('caracteresObjetivos').innerHTML = resto;
     } else {
         document.getElementById('inputObjetivos').value = valor.substr(0, quantidade);
+    }
+}
+
+var minuto = 30;
+var segundo = 60;
+var sessaoExpirada = false;
+
+function mostraTempoSessao() {
+    if (sessaoExpirada) {
+        div = document.getElementById('sessao');
+        div.style.color = 'red';
+        div.style.textDecoration = 'blink';
+        div.innerHTML = 'Sessão expirada!'
+
+    } else {
+        setTimeout('mostraTempoSessao()', 1000);
+        segundo = (segundo == 0 ? 59 : segundo - 1);
+        minuto = (segundo == 59 ? minuto - 1 : minuto);
+        document.getElementById('sessao').innerHTML = minuto + ' min ' + ( segundo < 10 ? '0' + segundo : segundo) + ' s';
     }
 }
 

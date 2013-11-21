@@ -6,21 +6,18 @@
   <%= javascript_include_tag "application", "bootstrap.min", "bootswatch", "jquery" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="">
+<body style="" onload="mostraTempoSessao()">
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <%= link_to "PDI 2014", root_path, class: "navbar-brand" %>
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
     </div>
   </div>
 </div>
 
 <div class="container">
+  <br/>
+  Sua sessão expira em: <span style="color: red" id="sessao"></span>
   <p>
     <% if flash[:notice] %>
       <div class="alert alert-dismissable alert-success">
